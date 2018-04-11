@@ -4,5 +4,9 @@ Rails.application.routes.draw do
     root to: "welcome#home"
     
     resources :users, only: [:show, :edit]
+    
+    resources :recipes
+    
+    resources :liquors
 
 end

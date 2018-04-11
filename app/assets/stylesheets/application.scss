@@ -17,6 +17,15 @@ div.container {
     text-align: center;
 }
 
+div.content-box {
+    padding: 5em;
+    margin: 0 5em;
+    text-align: center;
+    border: 2px solid white;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
 label, p, a, h3, h2, h1 {
     color: red;
 }
