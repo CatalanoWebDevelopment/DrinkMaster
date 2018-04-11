@@ -1,5 +1,28 @@
 @import "bootstrap";
 
-a.navbar-nav.white {
+body,html {
+    height: 100%;
+}
+
+.bg {
+    background-image: url('martini_glass_black_and_white.jpeg');   
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+div.container {
+    padding: 5em;
+    text-align: center;
+}
+
+label, p, a, h3, h2, h1 {
+    color: red;
+}
+
+a:hover {
     color: white;
 }
+
+

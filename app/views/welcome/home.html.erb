@@ -1,9 +1,33 @@
-<h1 class="heading">Welcome to DrinkMaster!</h1>
+<div>
+    <% if !user_signed_in? %>
+        <h1>Welcome to DrinkMaster!</h1>
+    
+        <h3>We host a free platform to introduce new drink recipes, look up existing ones, mix up your own "DrinkMix" of favorites, and collaborate with other inventors on new creations!</h3>
 
-<div class="content-middle">
-    <h3>We host a free platform to introduce new drink recipes, look up existing ones, mix up your own "DrinkMix" of favorites, and collaborate with other inventors on new creations!</h3>
-
-    <br>
-
-    <p>Please either <%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %></p>
+        <br>
+    
+        <p>Please either <%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %></p>
+    
+    <% else %>
+        
+        <h3>Welcome Back, <%= current_user.email %>!</h3>
+    
+        <br>
+    
+        <p>What would you like to do?</p>
+    
+        <br>
+    
+        <%= button_to "Browse Recipes" %> 
+    
+        <br>
+    
+        <%= button_to "Go to my Profile", user_path(current_user.id), method: :get %>
+    
+        <br>
+    
+        <%= button_to "Log Me Out!", destroy_user_session_path, method: :delete %>
+    
+        
+    <% end %>
 </div>
