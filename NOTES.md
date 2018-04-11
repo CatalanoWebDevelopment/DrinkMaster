@@ -22,3 +22,4 @@ User
  end
  
  ingredient.where(liquor_type)
+ 
