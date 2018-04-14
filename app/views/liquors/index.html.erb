@@ -1,6 +1,8 @@
 <div class="content-box">
+    <h2>Pick Your Liquor</h2>
+    
+    <% @liquors.each do |liquor| %>
+       | <%= link_to liquor.name, liquor_recipes_path(liquor), class: "red" %> |
+    <% end %>
 
-hello how are you doing
-    my name is jim
-    people
 </div>

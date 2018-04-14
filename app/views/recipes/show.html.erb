@@ -1,0 +1,12 @@
+<div class="content-box">
+    <h1><%= @recipe.name %></h1>
+        <% @recipe.ingredients.each do |i| %>
+            <li><%= "#{i.name}, #{i.quantity}" %></li>
+        <% end %>
+    
+        <br>
+        
+        <%= button_to "Add to DrinkMix List", root_path, form: {style: 'display:inline-block;'} %>
+        <%= button_to "Back", liquor_recipes_path(@recipe.liquor.id), form: {style: 'display:inline-block'}, method: :get %>
+        
+</div>

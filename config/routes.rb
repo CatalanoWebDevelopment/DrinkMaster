@@ -5,8 +5,15 @@ Rails.application.routes.draw do
     
     resources :users, only: [:show, :edit]
     
-    resources :recipes
+    resources :liquors do 
+        resources :recipes, only: [:index, :show]
+    end
     
-    resources :liquors
-
+    resources :recipes do 
+        resources :ingredients, only: [:new, :create, :show, :destroy]
+    end
+    
+    resources :recipes
+    resources :ingredients
+    
 end

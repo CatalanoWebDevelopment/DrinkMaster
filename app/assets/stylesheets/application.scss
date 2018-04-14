@@ -4,12 +4,21 @@ body,html {
     height: 100%;
 }
 
-.bg {
-    background-image: url('martini_glass_black_and_white.jpeg');   
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
+body {
+    position: relative;
+}
+
+body::after {
+  content: "";
+  background: url('martini_glass_black_and_white.jpeg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  background-size: cover;
 }
 
 div.container {
@@ -19,19 +28,29 @@ div.container {
 
 div.content-box {
     padding: 5em;
-    margin: 0 5em;
+    margin: 0 auto;
     text-align: center;
     border: 2px solid white;
     background-color: whitesmoke;
     border-radius: 10px;
+    width: 36em;
+    text-align: center;
 }
 
 label, p, a, h3, h2, h1 {
-    color: red;
+    color: black;
 }
 
 a:hover {
-    color: white;
+    color: red;
+}
+
+a.red:hover {
+    color: black;
+}
+
+li {
+    list-style-type: none;
 }
 
 

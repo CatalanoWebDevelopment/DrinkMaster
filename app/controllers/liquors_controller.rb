@@ -8,4 +8,12 @@ class LiquorsController < ApplicationController
         end
     end
     
+    def show
+        if user_signed_in?
+            @liquor = Liquor.find(params[:id])
+        else
+            redirect_to root_path
+        end
+    end
+    
 end

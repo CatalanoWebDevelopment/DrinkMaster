@@ -1,0 +1,9 @@
+<div class="content-box">
+    <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, liquor_recipe_path(recipe.liquor.id, recipe.id) %></li>
+    <% end %>
+    
+    <br>
+    
+    <%= button_to "Back", liquors_path, method: :get %> 
+</div>

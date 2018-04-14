@@ -1,0 +1,12 @@
+<div class="content-box">
+    <h3>You are now logged in as <%= current_user.email %></h3>
+    <p> What would you like to do?</p>
+    
+    <br> 
+    
+    <%= button_to "Create Your Own Recipe", new_recipe_path, method: :get %>
+    
+    <br>
+    
+    <%= button_to "View Your DrinkMixes" %>
+</div>

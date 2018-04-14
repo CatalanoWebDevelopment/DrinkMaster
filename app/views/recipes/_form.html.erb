@@ -1,0 +1,41 @@
+<%= form_for @recipe do |f| %>
+    <% if @recipe.errors.any? %>
+        <div id="error_explanation">
+            <h2>There were some errors:</h2>
+            <ul>
+                <% @recipe.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <br>
+
+    <div class="field">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+
+    <br>
+
+    <label>Choose a Liquor</label>
+    <select id="liquor_type" name="recipe[liquor_id]">
+        <option value="1">Rum</option>
+        <option value="2">Tequila</option>
+        <option value="3">Vodka</option>
+        <option value="4">Scotch</option>
+        <option value="5">Gin</option>
+        <option value="6">Whiskey</option>
+    </select>
+
+    <br><br>
+
+    <%= f.submit "Next" %>
+  
+<% end %>
