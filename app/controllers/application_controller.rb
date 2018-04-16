@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
         request.env['omniauth.origin'] || root_path
     end
     
-    private
- 
     def require_login
         unless user_signed_in?
             flash[:error] = "You must be logged in to access this section"
