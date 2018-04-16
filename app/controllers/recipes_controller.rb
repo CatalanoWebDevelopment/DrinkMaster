@@ -1,41 +1,25 @@
 class RecipesController < ApplicationController
+    before_action :require_login
     
     def index
-        if user_signed_in?
-            if params[:liquor_id] && @liquor = Liquor.find_by(id: params[:liquor_id])
-                @recipes = @liquor.recipes
-            else
-                @recipes = Recipe.search(params[:search])
-            end
+        if params[:liquor_id] && @liquor = Liquor.find_by(id: params[:liquor_id])
+            @recipes = @liquor.recipes
         else
-            redirect_to root_path
+            @recipes = Recipe.search(params[:search])
         end
     end
     
     def show
-        if user_signed_in?
-            @recipe = Recipe.find(params[:id])
-        else
-            redirect_to root_path
-        end
+        @recipe = Recipe.find(params[:id])
     end
     
     def new
-        if user_signed_in?
-            @recipe = Recipe.new
-        else
-            redirect_to root_path
-        end
+        @recipe = Recipe.new
     end
     
     def create
-        if user_signed_in?   
-            @recipe = Recipe.create(recipe_params)
-                
-            redirect_to new_recipe_ingredient_path(@recipe)
-        else
-            redirect_to root_path
-        end
+        @recipe = Recipe.create(recipe_params)            
+        redirect_to new_recipe_ingredient_path(@recipe)
     end
         
     private
@@ -44,4 +28,4 @@ class RecipesController < ApplicationController
         params.require(:recipe).permit(:name, :description, :liquor_id)
     end
     
-end
+end 

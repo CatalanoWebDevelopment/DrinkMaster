@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+
+function add_fields() {
+    document.getElementById('wrapper').innerHTML += '<div class="space">Ingredient name <input type="text" name="ingredient[name]" id="ingredient_name"></div>';
+    document.getElementById('wrapper').innerHTML += '<div class="space">Quantity <input type="text" name="ingredient[quantity] id="ingredient_quantity"></div>';
+}

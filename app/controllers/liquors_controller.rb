@@ -1,19 +1,12 @@
 class LiquorsController < ApplicationController
+    before_action :require_login
     
     def index
-        if user_signed_in?
-            @liquors = Liquor.all
-        else
-            redirect_to root_path
-        end
+        @liquors = Liquor.all
     end
     
     def show
-        if user_signed_in?
-            @liquor = Liquor.find(params[:id])
-        else
-            redirect_to root_path
-        end
+        @liquor = Liquor.find(params[:id])
     end
     
 end

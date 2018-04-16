@@ -23,5 +23,18 @@
         <%= f.label :quantity %>
         <%= f.text_field :quantity %>
     </div>
+    
+    <div id="wrapper">
+        
+        <!-- Content for JavaScript to add additional fields -->
+        
+    </div> <!-- End Wrapper --> 
+
+    <br>
+
+    <div class="actions">
+        <input type="button" id="more_fields" onclick="add_fields();" value="Add More Ingredients" style: {display: inline-block;}>
+        <%= f.submit "Finish Recipe" %>
+    </div>
 
 <% end %>
