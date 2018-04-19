@@ -15,6 +15,9 @@ class DrinkMixesController < ApplicationController
         redirect_to user_drink_mix_path(@user, @dm)
     end
     
+    def show
+    end
+    
     private
     
     def dm_params

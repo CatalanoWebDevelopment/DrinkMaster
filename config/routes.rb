@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     
     resources :users do
         resources :recipes, only: [:new, :index, :show]
-        resources :drink_mixes, only: [:new, :show, :index]
+        resources :drink_mixes, only: [:new, :create, :show, :index]
     end
     
     resources :recipes do 
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
     end
     
     resources :recipes, only: [:new, :show, :index]
-    resources :drink_mixes, only: [:show]
+    resources :drink_mixes, only: [:show, :create]
     
 end
