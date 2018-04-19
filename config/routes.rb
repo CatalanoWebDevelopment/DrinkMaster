@@ -10,12 +10,15 @@ Rails.application.routes.draw do
     end
     
     resources :users do
-        resources :recipes, only: [:index, :show]
+        resources :recipes, only: [:new, :index, :show]
+        resources :drink_mixes, only: [:new, :show, :index]
     end
     
     resources :recipes do 
         resources :ingredients, only: [:new, :create, :show, :destroy]
     end
     
-    resources :recipes
+    resources :recipes, only: [:new, :show, :index]
+    resources :drink_mixes, only: [:show]
+    
 end

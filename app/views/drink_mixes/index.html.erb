@@ -1,0 +1,13 @@
+<div class="content-box">
+    <% if @dms.empty? %>
+        <h4>You currently do not have any DrinkMixes. Please create one to get started!</h4>
+    <% else %>
+        <% @dms.each do |dm| %>
+            <li><%= link_to dm.name, user_drink_mix(current_user.id, dm) %></li>
+        <% end %>
+    <% end %>
+    
+    <br><br>
+    
+    <%= button_to "Create a New DrinkMix", new_user_drink_mix_path(current_user.id), method: :get %>
+</div>

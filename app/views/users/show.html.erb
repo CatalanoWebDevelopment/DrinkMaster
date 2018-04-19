@@ -12,7 +12,7 @@
     
     <br>
     
-    <%= button_to "View Your DrinkMixes" %>
+    <%= button_to "View Your DrinkMixes", user_drink_mixes_path(current_user.id), method: :get %> 
     
     <br>
     

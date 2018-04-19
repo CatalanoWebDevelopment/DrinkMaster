@@ -1,0 +1,20 @@
+<%= form_for @dm do |f| %>
+    <% if @dm.errors.any? %>
+        <div id="error_explanation">
+            <h2>There were some errors:</h2>
+            <ul>
+                <% @dm.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.label :name %>
+
+    <br>
+
+    <%= f.submit "Create My DrinkMix" %>
+
+<% end %>
