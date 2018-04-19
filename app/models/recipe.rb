@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
     has_many :ingredients
     belongs_to :liquor
+    accepts_nested_attributes_for :ingredients
     
     validates :name, presence: true
     validates :description, presence: true

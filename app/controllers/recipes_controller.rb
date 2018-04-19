@@ -15,17 +15,18 @@ class RecipesController < ApplicationController
     
     def new
         @recipe = Recipe.new
+        5.times {@recipe.ingredients.build}
     end
     
     def create
         @recipe = Recipe.create(recipe_params)            
-        redirect_to new_recipe_ingredient_path(@recipe)
+        redirect_to recipe_path(@recipe)
     end
         
     private
     
     def recipe_params
-        params.require(:recipe).permit(:name, :description, :liquor_id)
+        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity])
     end
     
 end 
