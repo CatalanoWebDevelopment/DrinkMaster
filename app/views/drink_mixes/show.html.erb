@@ -1,0 +1,7 @@
+<div class="content-box">
+    <h3><%= @dm.name %></h3>
+    
+    <% @dm.recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <% end %>
+</div>

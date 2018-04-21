@@ -3,6 +3,12 @@
         <li><%= link_to recipe.name, liquor_recipe_path(recipe.liquor.id, recipe.id) %></li>
     <% end %>
     
+    <% if @recipes.empty? %>
+        <h3>There are currently no recipes available for this type of liquor, please create one!</h3>
+    
+        <%= button_to "Create a Recipe", new_user_recipe_path(current_user.id), method: :get %>
+    <% end %>
+    
     <br>
     
     <%= button_to "Back", liquors_path, method: :get, form: {style: 'display:inline-block;'} %>  
