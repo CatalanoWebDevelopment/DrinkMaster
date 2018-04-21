@@ -12,5 +12,11 @@
         
         <%= button_to "Add to DrinkMix List", root_path, form: {style: 'display:inline-block;'} %>
         <%= button_to "Back", liquor_recipes_path(@recipe.liquor.id), form: {style: 'display:inline-block'}, method: :get %>
+    
+        <br><br>
+        
+        <% if @recipe.users.ids.include?(current_user.id) %>
+            <%= button_to "Edit Recipe", edit_liquor_recipe_path(@recipe.liquor.id, @recipe), form: {style: 'display:inline-block;'}, method: :get %>
+        <% end %>
         
 </div>

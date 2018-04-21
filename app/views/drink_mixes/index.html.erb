@@ -3,7 +3,7 @@
         <h4>You currently do not have any DrinkMixes. Please create one to get started!</h4>
     <% else %>
         <% @dms.each do |dm| %>
-            <li><%= link_to dm.name, user_drink_mix(current_user.id, dm) %></li>
+            <li><%= link_to dm.name, user_drink_mix_path(current_user.id, dm) %></li>
         <% end %>
     <% end %>
     

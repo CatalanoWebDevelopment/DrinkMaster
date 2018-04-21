@@ -21,7 +21,7 @@ class DrinkMixesController < ApplicationController
     private
     
     def dm_params
-        params.require(:drinkmix).permit(:name)
+        params.require(:drink_mix).permit(:name)
     end
     
 end
