@@ -19,7 +19,9 @@ class RecipesController < ApplicationController
     end
     
     def create
-        @recipe = Recipe.create(recipe_params)            
+        @recipe = Recipe.create(recipe_params)
+        @recipe.users << current_user
+        @recipe.save
         redirect_to recipe_path(@recipe)
     end
     
@@ -30,15 +32,20 @@ class RecipesController < ApplicationController
     def update
         @recipe = Recipe.find(params[:id])
         @recipe.update(recipe_params)
-        @recipe.save
         
         redirect_to recipe_path(@recipe)
+    end
+    
+    def destroy
+        @recipe = Recipe.find(params[:id])
+        @recipe.destroy
+        redirect_to user_path(current_user.id), :notice => 'Your recipe was deleted.'
     end
         
     private
     
     def recipe_params
-        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity])
+        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:id, :name, :quantity])
     end
     
 end 

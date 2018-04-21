@@ -17,6 +17,7 @@
         
         <% if @recipe.users.ids.include?(current_user.id) %>
             <%= button_to "Edit Recipe", edit_liquor_recipe_path(@recipe.liquor.id, @recipe), form: {style: 'display:inline-block;'}, method: :get %>
+            <%= button_to "Delete Recipe", liquor_recipe_path(@recipe.liquor.id, @recipe), form: {style: 'display:inline-block;'}, method: :delete %>
         <% end %>
         
 </div>
