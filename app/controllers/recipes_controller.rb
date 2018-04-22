@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
     
     def show
         @recipe = Recipe.find(params[:id])
+        @dms = current_user.drink_mixes.all
     end
     
     def new
@@ -40,6 +41,11 @@ class RecipesController < ApplicationController
         @recipe = Recipe.find(params[:id])
         @recipe.destroy
         redirect_to user_path(current_user.id), :notice => 'Your recipe was deleted.'
+    end
+    
+    def add_to_drinkmix
+        @recipe = Recipe.find(params[:id])
+        @recipe.add_to_drinkmix
     end
         
     private

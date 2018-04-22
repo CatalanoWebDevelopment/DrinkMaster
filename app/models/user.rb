@@ -7,6 +7,9 @@ class User < ApplicationRecord
     has_many :user_recipes
     has_many :recipes, through: :user_recipes
     
+    has_many :drink_mixes
+    has_many :recipes, through: :drink_mixes
+    
     def self.from_omniauth(auth)
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
             user.email = auth.info.email

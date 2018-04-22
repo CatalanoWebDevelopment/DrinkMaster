@@ -2,7 +2,7 @@ class DrinkMixesController < ApplicationController
     before_action :require_login
     
     def index 
-        @dms = DrinkMix.all
+        @dms = current_user.drink_mixes.all
     end
     
     def new
@@ -22,7 +22,7 @@ class DrinkMixesController < ApplicationController
     private
     
     def dm_params
-        params.require(:drink_mix).permit(:name)
+        params.require(:drink_mix).permit(:name, :user_id)
     end
     
 end

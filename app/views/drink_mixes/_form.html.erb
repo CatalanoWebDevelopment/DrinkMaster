@@ -12,6 +12,8 @@
 
     <br>
 
+    <input type="hidden" value="<%= current_user.id %>" name="drink_mix[user_id]">
+
     <%= f.label :name %>
     <%= f.text_field :name %>
 
