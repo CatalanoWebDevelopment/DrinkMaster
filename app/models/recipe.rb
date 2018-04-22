@@ -18,10 +18,6 @@ class Recipe < ApplicationRecord
             self.all
         end 
     end
-    
-    def add_to_drinkmix(drinkmix)
         
-    end
-    
 end
 

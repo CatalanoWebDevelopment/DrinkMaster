@@ -15,7 +15,7 @@
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <% @dms.each do |dm| %>
-                    <li><%= link_to dm.name %></li>
+                    <li><%= link_to dm.name, {:action => :add_to_drink_mix}, method: :post %></li>
                 <% end %>
             </ul>
         </div><!-- End Dropdown Menu -->

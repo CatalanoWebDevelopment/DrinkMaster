@@ -43,9 +43,13 @@ class RecipesController < ApplicationController
         redirect_to user_path(current_user.id), :notice => 'Your recipe was deleted.'
     end
     
-    def add_to_drinkmix
+    def add_to_drink_mix
         @recipe = Recipe.find(params[:id])
-        @recipe.add_to_drinkmix
+        @dm = DrinkMix.find(params[:id])
+        @dm.recipes << @recipe 
+        @dm.save
+        
+        redirect_to drink_mix_path(@dm)
     end
         
     private

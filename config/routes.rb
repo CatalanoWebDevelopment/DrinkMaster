@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     resources :recipes, only: [:new, :show, :index]
     resources :drink_mixes, only: [:show, :create]
     
+    post '/drink_mixes/:id', to: 'recipes#add_to_drink_mix', as: 'add_to_drink_mix'
+    
 end

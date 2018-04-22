@@ -10,12 +10,15 @@
     </li>
     </ol>
     
-    <% @dm.recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-    <% end %>
-    
     <% if @dm.recipes.empty? %>
         <p>You currently do not have any recipes saved. Please search or browse for some to add. Cheers!</p>
+    <% else %>
+        <h4>Your Saved Recipes:</h4>
+        <ol>
+         <% @dm.recipes.each do |recipe| %>
+            <li class="bulleted"><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <% end %>
+        </ol>
     <% end %>
     
     

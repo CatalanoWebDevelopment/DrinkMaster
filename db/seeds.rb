@@ -12,3 +12,5 @@ Ingredient.create(name: "Fresh orange juice", quantity: "4 oz", recipe_id: tequi
 Ingredient.create(name: "Grenadine", quantity: "1 oz", recipe_id: tequila_sunrise.id)
 Ingredient.create(name: "Orange Slice and Cherry", quantity: "Garnish with each", recipe_id: tequila_sunrise.id)
 
+
+

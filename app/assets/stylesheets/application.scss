@@ -57,6 +57,11 @@ li {
     list-style-type: none;
 }
 
+li.bulleted {
+    list-style-type: inherit;
+    text-align: center;
+}
+
 
 
 
