@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+
+
+function goBack() {
+    window.history.back();
+}
+

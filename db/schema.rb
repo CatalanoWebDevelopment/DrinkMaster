@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20180417184746) do
 
   create_table "drink_mix_recipes", force: :cascade do |t|
-    t.integer "drinkmix_id"
+    t.integer "drink_mix_id"
     t.integer "recipe_id"
     t.integer "rank"
     t.datetime "created_at", null: false

@@ -11,7 +11,7 @@
         <br><br>
         
         <%= button_to "Add to DrinkMix List", root_path, form: {style: 'display:inline-block;'} %>
-        <%= button_to "Back", liquor_recipes_path(@recipe.liquor.id), form: {style: 'display:inline-block'}, method: :get %>
+        <button onclick="goBack()">Back</button>
     
         <br><br>
         
