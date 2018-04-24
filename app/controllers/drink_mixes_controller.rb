@@ -18,7 +18,7 @@ class DrinkMixesController < ApplicationController
     def show
         @dm = DrinkMix.find(params[:id])
     end
-    
+     
     private
     
     def dm_params
