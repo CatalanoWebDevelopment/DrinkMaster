@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
     
     def add_to_drink_mix
         @recipe = Recipe.find(params[:id])
-        @dm = DrinkMix.find(params[:id])
+        @dm = DrinkMix.find(params[:drink_mix][:id])
         @dm.recipes << @recipe 
         @dm.save
         

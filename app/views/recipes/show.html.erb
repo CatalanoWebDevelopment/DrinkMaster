@@ -9,16 +9,17 @@
         <%= @recipe.description %>
     
         <br><br>
-        
-        <div class="dropdown">
-            <button class="dropdown-toggle" type="button" data-toggle="dropdown">Add to Drinkmix
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <% @dms.each do |dm| %>
-                    <li><%= link_to dm.name, {:action => :add_to_drink_mix}, method: :post %></li>
-                <% end %>
-            </ul>
-        </div><!-- End Dropdown Menu -->
+        <% if !@dms.empty? %>
+    
+            <%= form_tag("/recipes/#{@recipe.id}/add_to_drink_mix", method: :post) do %>
+                <%= collection_select :drink_mix, :id, DrinkMix.all, :id, :name %>  
+    
+                <br>
+                
+                <%= submit_tag "Add to Selected DrinkMix" %>
+            <% end %>
+
+        <% end %> <!-- End If Statement -->
     
         <br>
     
