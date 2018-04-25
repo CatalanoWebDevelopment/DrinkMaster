@@ -4,4 +4,5 @@ Need to create an edit and delete page for profile
 
 Need to create an edit and delete page for recipes
 
+<%= button_to "Remove", drink_mix_recipe_path(recipe), method: :delete, form: {style: 'display:inline-block;'} %>
  

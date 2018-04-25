@@ -16,7 +16,17 @@
         <h4>Your Saved Recipes:</h4>
         <ol>
          <% @dm.recipes.each do |recipe| %>
-            <li class="bulleted"><%= link_to recipe.name, recipe_path(recipe) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= button_to "Remove", drink_mix_path(recipe), method: :delete, form: {style: 'display:inline-block;'} %></li>
+            <li class="bulleted">
+                <%= link_to recipe.name, recipe_path(recipe) %>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                
+                <%= form_tag "/drink_mix_recipes/#{recipe.id}", method: :delete do %>
+                    <%= submit_tag "Remove" %>
+                <% end %>
+                
+                <br>
+            </li>
         <% end %>
         </ol>
     <% end %>
