@@ -14,13 +14,18 @@
             <%= form_tag("/recipes/#{@recipe.id}/add_to_drink_mix", method: :post) do %>
                 <%= collection_select :drink_mix, :id, DrinkMix.all, :id, :name %>  
     
-                <br>
+                <br><br>
+                <%= label_tag :rank, "Rank This Recipe in Your DrinkMix:"%>
+                <%= number_field_tag :rank %>
+    
+                <br><br>
                 
                 <%= submit_tag "Add to Selected DrinkMix" %>
             <% end %>
 
         <% end %> <!-- End If Statement -->
     
+        -----------------------------------
         <br>
     
         <button onclick="goBack()">Back</button>

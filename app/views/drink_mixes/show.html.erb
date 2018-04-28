@@ -18,20 +18,23 @@
          <% @dm.recipes.each do |recipe| %>
             <li class="bulleted">
                 <%= link_to recipe.name, recipe_path(recipe) %>
-                
-                &nbsp;&nbsp;&nbsp;&nbsp; 
-                
+            
                 <%= form_tag "/drink_mix/#{@dm.id}/recipes/#{recipe.id}", method: :delete do %>
                     <%= submit_tag "Remove" %>
                 <% end %>
                 
-                <br>
+                <%= "Your Ranking: " + "#{@dm.drink_mix_recipes.find_by(recipe_id: recipe.id).rank}" %>
+                
+                <br><br>
+                
             </li>
         <% end %>
         </ol>
+    
     <% end %>
     
+    <br><br><br><br>
     
-    
+    <%= button_to "Delete Your DrinkMix", drink_mix_path(@dm), method: :delete, data: { confirm: "Are you sure that you want to delete this DrinkMix?" } %>
     
 </div>

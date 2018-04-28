@@ -19,8 +19,11 @@ class DrinkMixesController < ApplicationController
         @dm = DrinkMix.find(params[:id])
     end
     
-    def destroy 
+    def destroy
+        @dm = DrinkMix.find(params[:id])
+        @dm.destroy
         
+        redirect_to user_path(current_user)
     end
      
     private
