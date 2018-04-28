@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     
     resources :drink_mix_recipes, only: [:destroy]
     
+    delete 'drink_mix/:drink_mix_id/recipes/:id', to: 'drink_mix_recipes#destroy', as: 'remove_from_drinkmix'
+    
     post 'recipes/:id/add_to_drink_mix', to: 'recipes#add_to_drink_mix', as: 'add_to_drink_mix'
     
 end

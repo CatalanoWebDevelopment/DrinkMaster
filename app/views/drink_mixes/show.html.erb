@@ -21,7 +21,7 @@
                 
                 &nbsp;&nbsp;&nbsp;&nbsp; 
                 
-                <%= form_tag "/drink_mix_recipes/#{recipe.id}", method: :delete do %>
+                <%= form_tag "/drink_mix/#{@dm.id}/recipes/#{recipe.id}", method: :delete do %>
                     <%= submit_tag "Remove" %>
                 <% end %>
                 
