@@ -16,7 +16,7 @@
     
                 <br><br>
                 <%= label_tag :rank, "Rank This Recipe in Your DrinkMix:"%>
-                <%= number_field_tag :rank %>
+                <%= number_field_tag :rank, nil, in: 1...11, class: "rank-field" %>
     
                 <br><br>
                 

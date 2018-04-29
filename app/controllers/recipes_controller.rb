@@ -47,7 +47,11 @@ class RecipesController < ApplicationController
         @recipe = Recipe.find(params[:id])
         @dm = DrinkMix.find(params[:drink_mix][:id])
         @dm.recipes << @recipe 
-        @dm.save
+        @dm.save 
+        
+        @dmr = @dm.drink_mix_recipes.find_by(recipe_id: @recipe.id)
+        @dmr.rank = params[:rank]
+        @dmr.save
         
         redirect_to drink_mix_path(@dm)
     end
