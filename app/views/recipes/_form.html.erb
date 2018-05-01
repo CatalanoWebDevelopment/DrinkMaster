@@ -39,6 +39,7 @@
 
     <p>Please Include All Forms of Measurment in Input Fields</p>
         <p>Example: "Prefered type of Liquor" 2 fluid oz</p>
+        
 
     <%= f.fields_for :ingredients do |ingredient| %>
         <div class="field">
@@ -57,3 +58,5 @@
     <%= f.submit "Finish Recipe" %>
   
 <% end %>
+
+<p><small>Note* Not all fields need to be filled!</small></p>

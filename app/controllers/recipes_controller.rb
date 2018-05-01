@@ -16,11 +16,11 @@ class RecipesController < ApplicationController
     
     def new
         @recipe = Recipe.new
-        5.times {@recipe.ingredients.build}
+        8.times {@recipe.ingredients.build}
     end
     
     def create
-        @recipe = Recipe.create(recipe_params)
+        @recipe = Recipe.new(recipe_params)
         @recipe.users << current_user
         @recipe.save
         redirect_to recipe_path(@recipe)
