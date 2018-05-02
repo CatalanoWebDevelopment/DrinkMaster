@@ -12,7 +12,7 @@ configure :development do
 end
 
 configure :production do
-  db = URI.parse(ENV['HEROKU_POSTGRESQL_COBALT_URL'] || 'postgres://localhost/mydb')
+  db = URI.parse(ENV['DATABASE_URL'] || 'postgres://kllqthczayqine:63319d12a3fb53d73449b7db39a987da632e28ab193045798fca74c761873b5a@ec2-54-204-46-236.compute-1.amazonaws.com:5432/dc12290ckgf41r')
 
   ActiveRecord::Base.establish_connection(
     :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
