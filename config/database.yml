@@ -1,14 +1,21 @@
 development:
-  adapter: sqlite3
-  database: database.db
+  adapter: postgresql
+  encoding: utf8
+  database: drinkmaster_development
+  pool: 5
 
-test:
-  adapter: sqlite3
-  database: database.db
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: drinkmaster_test
+  pool: 5
 
 production:
   adapter: postgresql
-  database: drinkmaster_database
-  username: username
-  password: password
-  host: localhost
+  encoding: utf8
+  database: drinkmaster_production
+  pool: 5
+
+cucumber:
+  <<: *TEST
+
