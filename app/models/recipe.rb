@@ -13,7 +13,9 @@ class Recipe < ApplicationRecord
     
     def self.search(query)
         if query
-           self.where("name LIKE ?", "%#{sanitize_sql_like(query)}%")
+           self.all.select do |recipe| 
+               recipe.name.downcase.include?(query.downcase)
+           end
         else
             self.all
         end 

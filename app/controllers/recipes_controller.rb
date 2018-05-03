@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
     before_action :require_login
     
-    def index
+    def index        
         if params[:liquor_id] && @liquor = Liquor.find_by(id: params[:liquor_id])
             @recipes = @liquor.recipes
         else
