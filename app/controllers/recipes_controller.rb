@@ -31,11 +31,13 @@ class RecipesController < ApplicationController
     end
     
     def edit
-        @recipe = Recipe.find(params[:id])    
+        @recipe = Recipe.find(params[:id]) 
+        8.times {@recipe.ingredients.build}
     end
     
     def update
         @recipe = Recipe.find(params[:id])
+        
         
         if @recipe.update(recipe_params)
             redirect_to recipe_path(@recipe)
@@ -66,7 +68,7 @@ class RecipesController < ApplicationController
     private
     
     def recipe_params
-        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:id, :name, :quantity])
+        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity])
     end
     
 end 
