@@ -1,0 +1,8 @@
+<div class="content-box">
+    <h3>Your Highest Ranked Recipes!</h3>
+    
+    <% @dm.drink_mix_recipes.highest_rated.each do |dmr| %>
+        <li><%= link_to dmr.recipe.name, recipe_path(dmr.recipe) %></li>
+    <% end %>
+
+</div>

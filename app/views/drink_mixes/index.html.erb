@@ -1,6 +1,7 @@
 <div class="content-box">
     <% if @dms.empty? %>
-        <h4>You currently do not have any DrinkMixes. Please create one to get started!</h4>
+        <h4>You currently do not have any DrinkMix Playlists.</h4>
+        <p>A DrinkMix Playlist is simply a list of recipes which you find most enjoyable, saved to one location. It's easy! Just click the button below to get started.</p>
     <% else %>
         <% @dms.each do |dm| %>
             <li><%= link_to dm.name, user_drink_mix_path(current_user.id, dm) %></li>

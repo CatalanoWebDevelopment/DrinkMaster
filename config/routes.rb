@@ -27,4 +27,6 @@ Rails.application.routes.draw do
     
     post 'recipes/:id/add_to_drink_mix', to: 'recipes#add_to_drink_mix', as: 'add_to_drink_mix'
     
+    get 'drink_mixes/:id/highest_rated', to: 'drink_mixes#highest_rated', as: 'highest_rated'
+    
 end

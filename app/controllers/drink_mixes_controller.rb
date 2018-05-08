@@ -10,9 +10,14 @@ class DrinkMixesController < ApplicationController
     end
     
     def create
-        @dm = DrinkMix.create(dm_params)
+        @dm = DrinkMix.new(dm_params)
         @user = current_user.id
-        redirect_to user_drink_mix_path(@user, @dm)
+        
+        if @dm.save
+            redirect_to user_drink_mix_path(@user, @dm)
+        else
+            render :new
+        end
     end
     
     def show
@@ -24,6 +29,10 @@ class DrinkMixesController < ApplicationController
         @dm.destroy
         
         redirect_to user_path(current_user)
+    end
+    
+    def highest_rated
+        @dm = DrinkMix.find(params[:id])
     end
      
     private

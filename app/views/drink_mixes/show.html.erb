@@ -1,6 +1,6 @@
 <div class="content-box">
     <h3><%= @dm.name %></h3>
-    <p>Search For a Recipe to Add To Your DrinkMix:</p>
+    <p>Search For a Recipe to Add To Your DrinkMix Playlist:</p>
     <ol>
     <li>
         <form class="form-inline my-2 my-lg-0" method="get" action="/recipes">
@@ -34,6 +34,10 @@
     <% end %>
     
     <br><br><br><br>
+    
+    <%= button_to "View Only Your Highest Ranked Recipes", highest_rated_path(@dm), method: :get %>
+    
+    <br>
     
     <%= button_to "Delete Your DrinkMix", drink_mix_path(@dm), method: :delete, data: { confirm: "Are you sure that you want to delete this DrinkMix?" } %>
     
