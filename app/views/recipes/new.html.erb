@@ -4,3 +4,20 @@
     <%= render 'form' %>
 </div>
 
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+       $('form').submit(function(e) {
+           e.preventDefault();
+           const values = $(this).serialize()
+           const posting = $.post("/recipes", values)
+           
+           posting.done(function(data) {
+               console.log(data)
+               let recipe = data
+               $("#recipeName").text(recipe["name"])
+               $("#recipeDescription").text(recipe["description"])
+           })
+       }) 
+    })
+</script>
+

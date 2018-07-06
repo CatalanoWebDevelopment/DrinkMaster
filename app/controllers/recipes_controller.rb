@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
         @recipe.users << current_user
         
         if @recipe.save
-            redirect_to recipe_path(@recipe)
+            render json: @recipe, status: 201
         else
             render :new
         end
