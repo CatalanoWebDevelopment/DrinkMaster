@@ -16,7 +16,6 @@ class RecipesController < ApplicationController
     
     def new
         @recipe = Recipe.new
-        8.times {@recipe.ingredients.build}
     end
     
     def create
@@ -32,7 +31,6 @@ class RecipesController < ApplicationController
     
     def edit
         @recipe = Recipe.find(params[:id]) 
-        8.times {@recipe.ingredients.build}
     end
     
     def update
@@ -40,7 +38,7 @@ class RecipesController < ApplicationController
         
         
         if @recipe.update(recipe_params)
-            redirect_to recipe_path(@recipe)
+            redirect_to recipe_path(@recipe), notice: ('Your Recipe Was Succesfully Updated')
         else
              render :edit
         end
@@ -68,7 +66,7 @@ class RecipesController < ApplicationController
     private
     
     def recipe_params
-        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity])
+        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity, :id])
     end
     
 end 
