@@ -1,3 +1,5 @@
+require_relative '../serializers/recipe_serializer.rb'
+
 class RecipesController < ApplicationController
     before_action :require_login
     
@@ -23,7 +25,9 @@ class RecipesController < ApplicationController
         @recipe.users << current_user
         
         if @recipe.save
-            render json: @recipe, status: 201
+            binding.pry
+            
+            render json: @recipe, status: 201 
         else
             render :new
         end

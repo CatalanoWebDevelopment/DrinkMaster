@@ -1,5 +1,5 @@
 <div class="content-box">
-    <h3>You Are Now Creating a New Recipe</h3>
+    <h3 id="new_recipe_title">You Are Now Creating a New Recipe</h3>
     <br>
     <%= render 'form' %>
 </div>
@@ -16,6 +16,9 @@
                let recipe = data
                $("#recipeName").text(recipe["name"])
                $("#recipeDescription").text(recipe["description"])
+               $("#new_recipe").remove()
+               $("#new_recipe_title").remove()
+               $("#small_note").remove()
            })
        }) 
     })
