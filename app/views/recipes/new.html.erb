@@ -23,11 +23,11 @@
                    $("#recipeResult").append(li)
                })
                
+               $("#recipeResult").append(`<br><%= button_to "Back to Profile", "/users/#{current_user.id}", method: :get %>`)
+               
                $("#new_recipe").remove()
                $("#new_recipe_title").remove()
                $("#small_note").remove()
-               
-               
            })
        }) 
     })
