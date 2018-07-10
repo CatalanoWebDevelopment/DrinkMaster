@@ -6,7 +6,8 @@ class Recipe < ApplicationRecord
     
     has_many :drink_mix_recipes
     has_many :drink_mixes, through: :drink_mix_recipes                       
-    accepts_nested_attributes_for :ingredients
+    accepts_nested_attributes_for :ingredients,
+        allow_destroy: true
     
     validates :name, presence: true
     validates :description, presence: true
