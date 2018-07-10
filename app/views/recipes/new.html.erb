@@ -16,9 +16,18 @@
                let recipe = data
                $("#recipeName").text(recipe["name"])
                $("#recipeDescription").text(recipe["description"])
+               
+               recipe["ingredients"].forEach(function(ingredient) {
+                   let li = document.createElement("li")
+                   li.innerHTML = `${ingredient.name}, ${ingredient.quantity}`
+                   $("#recipeResult").append(li)
+               })
+               
                $("#new_recipe").remove()
                $("#new_recipe_title").remove()
                $("#small_note").remove()
+               
+               
            })
        }) 
     })

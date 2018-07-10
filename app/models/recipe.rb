@@ -21,13 +21,5 @@ class Recipe < ApplicationRecord
         end 
     end
     
-    def ingredients_attributes=(ingredients_attributes)
-        ingredients_attributes.values.each do |ingredient_attributes|
-            if ingredient_attributes[:name] != nil && ingredient_attributes[:name] != "" && ingredient_attributes[:name] != " "
-                self.ingredients.find_or_initialize_by(ingredient_attributes)
-            end
-        end
-    end
-        
 end
 

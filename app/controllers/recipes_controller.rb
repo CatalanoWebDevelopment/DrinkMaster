@@ -25,9 +25,7 @@ class RecipesController < ApplicationController
         @recipe.users << current_user
         
         if @recipe.save
-            binding.pry
-            
-            render json: @recipe, status: 201 
+            render json: @recipe, serializer: RecipeSerializer, status: 201 
         else
             render :new
         end
@@ -70,7 +68,7 @@ class RecipesController < ApplicationController
     private
     
     def recipe_params
-        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity, :id])
+        params.require(:recipe).permit(:name, :description, :liquor_id, ingredients_attributes: [:name, :quantity, :id, :_destroy])
     end
     
 end 
