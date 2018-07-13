@@ -29,4 +29,6 @@ Rails.application.routes.draw do
     
     get 'drink_mixes/:id/highest_rated', to: 'drink_mixes#highest_rated', as: 'highest_rated'
     
+    get '/recipes/:id/next_recipe', to: 'recipes#next_recipe'
+        
 end

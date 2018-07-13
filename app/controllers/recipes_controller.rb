@@ -63,7 +63,15 @@ class RecipesController < ApplicationController
         
         redirect_to drink_mix_path(@dm)
     end
+    
+    def next_recipe
+        @recipe = Recipe.find(params[:id])
+        recipes = Recipe.all
+        @nextRecipe = recipes.find{|recipe| recipe.id > @recipe.id}
         
+        render json: @nextRecipe, serializer: RecipeSerializer, status: 200
+    end
+         
     private
     
     def recipe_params

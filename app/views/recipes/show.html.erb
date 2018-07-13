@@ -1,14 +1,21 @@
 <div class="content-box">
-    <h1><%= @recipe.name %></h1>
-        <% @recipe.ingredients.each do |i| %>
-            <li><%= "#{i.name}, #{i.quantity}" %></li>
-        <% end %>
+    <div id="oldShowContent">
+        <h1><%= @recipe.name %></h1>
+            <% @recipe.ingredients.each do |i| %>
+                <li><%= "#{i.name}, #{i.quantity}" %></li>
+            <% end %>
     
         <br>
     
         <%= @recipe.description %>
+    </div>
     
-        <br><br>
+    <div id="newShowContent">
+        <h1 id="newRecipeName"></h1>
+        <p id="newRecipeDescription"></p>
+    </div>
+    
+        <br>
         <% if !@dms.empty? %>
     
             <%= form_tag("/recipes/#{@recipe.id}/add_to_drink_mix", method: :post) do %>
@@ -36,5 +43,34 @@
             <%= button_to "Edit Recipe", edit_liquor_recipe_path(@recipe.liquor.id, @recipe), form: {style: 'display:inline-block;'}, method: :get %>
             <%= button_to "Delete Recipe", liquor_recipe_path(@recipe.liquor.id, @recipe), form: {style: 'display:inline-block;'}, method: :delete %>
         <% end %>
+    
+        <br><br>
+    
+        <a href="#" class="js-next" data-id="<%= @recipe.id %>">Click To Enjoy a New Recipe!</a>
         
+        <br><br> 
 </div>
+
+<script type="text/javascript" charset="utf-8">
+    $(".js-next").on("click", function(e) {
+        e.preventDefault();
+        const currentId = $(this).data("id")
+        // get request to next_recipe
+        // it should return the information of the next recipe
+        // put on page
+        $.get("/recipes/" + currentId + "/next_recipe", function(nextRecipe) {
+            $("#newRecipeName").text(nextRecipe["name"])
+            $("#newRecipeDescription").text(nextRecipe["description"])
+            
+            nextRecipe["ingredients"].forEach(function(ingredient) {
+                let li = document.createElement("li")
+                li.innerHTML = `${ingredient.name}, ${ingredient.quantity}`
+                $("#newShowContent").append(li)
+            })
+            
+            $("#oldShowContent").remove()
+            
+        })
+            
+    })
+</script>
