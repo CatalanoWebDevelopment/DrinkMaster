@@ -46,15 +46,19 @@
     
         <br><br>
     
-        <a href="#" class="js-next" data-id="<%= @recipe.id %>">Click To Enjoy a New Recipe!</a>
-        
-        <br><br> 
+        <div id="showNextRecipeButton">
+            <a href="#" class="js-next" data-id="<%= @recipe.id %>">Click To Enjoy a New Recipe!</a>
+        </div>
+ 
 </div>
 
 <script type="text/javascript" charset="utf-8">
     $(".js-next").on("click", function(e) {
         e.preventDefault();
-        const currentId = $(this).data("id")
+        let url = window.location.href
+        let arrayURL = url.split("/")
+        let currentId = arrayURL[6]
+        
         // get request to next_recipe
         // it should return the information of the next recipe
         // put on page
@@ -70,7 +74,10 @@
             
             $("#oldShowContent").remove()
             
+            history.replaceState(null, "DrinkMaster-Deluxe Random Recipes", nextRecipe["id"] + "/next_recipe")
+            
         })
+        
             
     })
 </script>
