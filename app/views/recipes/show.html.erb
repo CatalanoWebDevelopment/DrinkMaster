@@ -13,6 +13,7 @@
     <div id="newShowContent">
         <h1 id="newRecipeName"></h1>
         <p id="newRecipeDescription"></p>
+        <div class="ingredients"></div>
     </div>
     
         <br>
@@ -55,26 +56,23 @@
 <script type="text/javascript" charset="utf-8">
     $(".js-next").on("click", function(e) {
         e.preventDefault();
-        let url = window.location.href
-        let arrayURL = url.split("/")
-        let currentId = arrayURL[6]
         
-        // get request to next_recipe
-        // it should return the information of the next recipe
-        // put on page
+        let currentId = $(this).attr('data-id')
+        
         $.get("/recipes/" + currentId + "/next_recipe", function(nextRecipe) {
             $("#newRecipeName").text(nextRecipe["name"])
             $("#newRecipeDescription").text(nextRecipe["description"])
-            
+            $(".ingredients").html('')
             nextRecipe["ingredients"].forEach(function(ingredient) {
                 let li = document.createElement("li")
                 li.innerHTML = `${ingredient.name}, ${ingredient.quantity}`
-                $("#newShowContent").append(li)
+                $(".ingredients").append(li)
             })
             
             $("#oldShowContent").remove()
             
-            history.replaceState(null, "DrinkMaster-Deluxe Random Recipes", nextRecipe["id"] + "/next_recipe")
+            history.replaceState(null, "DrinkMaster-Deluxe Random Recipes", '/' + nextRecipe["id"] + "/next_recipe")
+            $('.js-next').attr('data-id', nextRecipe['id'])
             
         })
         
