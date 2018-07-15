@@ -16,7 +16,6 @@
                
                $("#recipeName").text(recipeObj.name)
                $("#recipeDescription").text(recipeObj.description)
-               
                $(".ingredients").html(recipeObj.renderIngredients())
                
                $("#recipeResult").append(`<br><%= button_to "Back to Profile", "/users/#{current_user.id}", method: :get %>`)

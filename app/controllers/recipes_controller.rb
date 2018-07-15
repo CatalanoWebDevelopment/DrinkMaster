@@ -9,6 +9,11 @@ class RecipesController < ApplicationController
         else
             @recipes = Recipe.search(params[:search])
         end
+        
+        respond_to do |format|
+            format.html {render :index}
+            format.json {render json: @recipes, status: 200}
+        end
     end
     
     def show

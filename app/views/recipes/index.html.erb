@@ -1,7 +1,5 @@
 <div class="content-box">
-    <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, liquor_recipe_path(recipe.liquor.id, recipe.id) %></li>
-    <% end %>
+    <div id="indexShow"></div>
     
     <% if @recipes.empty? %>
         <h3>There are currently no recipes available for this type of liquor, please create one!</h3>
@@ -13,3 +11,22 @@
     
    <button onclick="goBack()">Back</button>
 </div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        const urlArray = window.location.href.split("/")
+        const idParams = parseInt(urlArray[4])
+        
+        $.getJSON("/liquors/" + idParams + "/recipes", function(recipes) {
+            recipes.forEach(function(recipe) {
+                let li = document.createElement("li")
+                li.innerHTML = `<a href="/liquors/${idParams}/recipes/${recipe.id}">${recipe.name}</a>`
+                $("#indexShow").append(li)
+            })
+            
+        })
+        
+    })
+</script>
