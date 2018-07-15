@@ -12,7 +12,6 @@
            const posting = $.post("/recipes", values)
            
            posting.done(function(data) {
-               console.log(data)
                let recipe = data
                $("#recipeName").text(recipe["name"])
                $("#recipeDescription").text(recipe["description"])

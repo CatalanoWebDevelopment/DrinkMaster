@@ -69,8 +69,8 @@ class RecipesController < ApplicationController
         recipes = Recipe.all
         @nextRecipe = recipes.find{|recipe| recipe.id > @recipe.id}
         
-        if !@nextrecipe
-            @nextrecipe = Recipe.first
+        if !@nextRecipe
+            @nextRecipe = Recipe.first
         end
         
         render json: @nextRecipe, serializer: RecipeSerializer, status: 200
