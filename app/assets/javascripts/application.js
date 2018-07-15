@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require cocoon
 //= require popper
+//= require recipe
 //= require bootstrap-sprockets
 
 

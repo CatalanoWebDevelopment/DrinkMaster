@@ -53,29 +53,4 @@
  
 </div>
 
-<script type="text/javascript" charset="utf-8">
-    $(".js-next").on("click", function(e) {
-        e.preventDefault();
-        
-        let currentId = $(this).attr('data-id')
-        
-        $.get("/recipes/" + currentId + "/next_recipe", function(nextRecipe) {
-            $("#newRecipeName").text(nextRecipe["name"])
-            $("#newRecipeDescription").text(nextRecipe["description"])
-            $(".ingredients").html('')
-            nextRecipe["ingredients"].forEach(function(ingredient) {
-                let li = document.createElement("li")
-                li.innerHTML = `${ingredient.name}, ${ingredient.quantity}`
-                $(".ingredients").append(li)
-            })
-            
-            $("#oldShowContent").remove()
-            
-            history.replaceState(null, "DrinkMaster-Deluxe Random Recipes", '/' + nextRecipe["id"] + "/next_recipe")
-            $('.js-next').attr('data-id', nextRecipe['id'])
-            
-        })
-        
-            
-    })
-</script>
+
