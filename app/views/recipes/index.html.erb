@@ -16,13 +16,11 @@
 
 <script type="text/javascript" charset="utf-8">
     $(function() {
-        const urlArray = window.location.href.split("/")
-        const idParams = parseInt(urlArray[4])
-        
-        $.getJSON("/liquors/" + idParams + "/recipes", function(recipes) {
+        debugger
+        $.getJSON("/users/" + `${current_user.id}` + "/recipes", function(recipes) {
             recipes.forEach(function(recipe) {
                 let li = document.createElement("li")
-                li.innerHTML = `<a href="/liquors/${idParams}/recipes/${recipe.id}">${recipe.name}</a>`
+                li.innerHTML = `<a href="/liquors/${recipe.liquor.id}/recipes/${recipe.id}">${recipe.name}</a>`
                 $("#indexShow").append(li)
             })
             
