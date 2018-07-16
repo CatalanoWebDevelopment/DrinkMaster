@@ -8,7 +8,7 @@
     
     <br>
     
-    <%= button_to "View Your Recipes", user_recipes_path(current_user.id), method: :get %>
+    <%= button_to "View Your Recipes", user_recipes_path(current_user.id), :form => {id: "userRecipes" }, method: :get %>
     
     <br>
     
