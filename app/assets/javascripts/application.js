@@ -21,6 +21,6 @@
 
 function goBack() {
     debugger
-    window.history.back();
+    window.history.go(-1);
 }
 
