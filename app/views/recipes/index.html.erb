@@ -12,31 +12,27 @@
    <button onclick="goBack()">Back</button>
 </div>
 
-
-
 <script type="text/javascript" charset="utf-8">
     $(function() {
         const urlArray = window.location.href.split("/")
         const idParams = parseInt(urlArray[4])
-        
-        if($("#userRecipes").onClick) {
+    
+        if(urlArray[3] === "liquors") {
+            $.getJSON("/liquors/" + `${idParams}` + "/recipes", function(recipes) {
+                recipes.forEach(function(recipe) {
+                    let li = document.createElement("li")
+                    li.innerHTML = `<a href="/liquors/${recipe.liquor.id}/recipes/${recipe.id}">${recipe.name}</a>`
+                    $("#indexShow").append(li)
+                })
+            })
+        } else {
             $.getJSON("/users/" + `${idParams}` + "/recipes", function(recipes) {
                 recipes.forEach(function(recipe) {
                     let li = document.createElement("li")
                     li.innerHTML = `<a href="/liquors/${recipe.liquor.id}/recipes/${recipe.id}">${recipe.name}</a>`
                     $("#indexShow").append(li)
                 })
-            
             })
-        } else {
-             $.getJSON("/liquors/" + `${idParams}` + "/recipes", function(recipes) {
-                recipes.forEach(function(recipe) {
-                    let li = document.createElement("li")
-                    li.innerHTML = `<a href="/liquors/${recipe.liquor.id}/recipes/${recipe.id}">${recipe.name}</a>`
-                    $("#indexShow").append(li)
-                })
-            
-            })
-        }
+        }     
     })
 </script>
