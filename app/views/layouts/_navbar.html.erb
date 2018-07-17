@@ -5,12 +5,12 @@
 
 <% if user_signed_in? %>
 
-    <%= link_to "Rum", liquor_recipes_path(liquor_id: 1), class: "navbar-brand" %>
-    <%= link_to "Tequila", liquor_recipes_path(liquor_id: 2), class: "navbar-brand" %>
-    <%= link_to "Vodka", liquor_recipes_path(liquor_id: 3), class: "navbar-brand" %>
-    <%= link_to "Scotch", liquor_recipes_path(liquor_id: 4), class: "navbar-brand" %>
-    <%= link_to "Gin", liquor_recipes_path(liquor_id: 5), class: "navbar-brand" %>
-    <%= link_to "Whiskey", liquor_recipes_path(liquor_id: 6), class: "navbar-brand" %>
+    <%= link_to "Rum", "#{liquor_recipes_path(liquor_id: 1)}.html", class: "navbar-brand" %>
+    <%= link_to "Tequila", "#{liquor_recipes_path(liquor_id: 2)}.html", class: "navbar-brand" %>
+    <%= link_to "Vodka", "#{liquor_recipes_path(liquor_id: 3)}.html", class: "navbar-brand" %>
+    <%= link_to "Scotch", "#{liquor_recipes_path(liquor_id: 4)}.html", class: "navbar-brand" %>
+    <%= link_to "Gin", "#{liquor_recipes_path(liquor_id: 5)}.html", class: "navbar-brand" %>
+    <%= link_to "Whiskey", "#{liquor_recipes_path(liquor_id: 6)}.html", class: "navbar-brand" %>
 
 <% end %>
 

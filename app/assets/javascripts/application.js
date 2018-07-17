@@ -20,6 +20,7 @@
 
 
 function goBack() {
+    debugger
     window.history.back();
 }
 

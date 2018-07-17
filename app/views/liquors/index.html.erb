@@ -2,7 +2,7 @@
     <h2>Pick Your Liquor</h2>
     
     <% @liquors.each do |liquor| %>
-       | <%= link_to liquor.name, liquor_recipes_path(liquor), class: "red" %> |
+       | <%= link_to liquor.name, "#{liquor_recipes_path(liquor)}.html", class: "red" %> |
     <% end %>
 
 </div>
