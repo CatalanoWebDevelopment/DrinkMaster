@@ -294,6 +294,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets (~> 3.7.2)
   sprockets-rails
   sqlite3
   taps
