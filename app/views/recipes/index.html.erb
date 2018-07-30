@@ -1,6 +1,12 @@
 <div class="content-box">
     <div id="indexShow"></div>
     
+    <div id="searchDiv">
+        <% @recipes.each do |recipe| %>
+            <%= link_to "#{recipe.name}", recipe_path(recipe) %>
+        <% end %>
+    </div>
+    
     <% if @recipes.empty? %>
         <h3>There are currently no recipes available for this type of liquor, please create one!</h3>
     
@@ -16,30 +22,25 @@
     $(function() {
         const urlArray = window.location.href.split("/")
         const idParams = parseInt(urlArray[4])
-    
+        
+        
         if(urlArray[3] === "liquors") {
             $.getJSON("/liquors/" + `${idParams}` + "/recipes", function(recipes) {
                 recipes.forEach(function(recipe) {
                     const li = document.createElement("li")
                     li.innerHTML = `<a href="/liquors/${recipe.liquor.id}/recipes/${recipe.id}">${recipe.name}</a>`
                     $("#indexShow").append(li)
+                    $("#searchDiv").empty()
                 })
             })
-        } else {
+            
+        } else if(urlArray[3] === "users") {
             $.getJSON("/users/" + `${idParams}` + "/recipes", function(recipes) {
-    
-                
-                console.log(recipes.sort(function(a, b) {
-                    
-                    return b.ingredients.length - a.ingredients.length
-                }))
-                
-                
-                
                 recipes.forEach(function(recipe) {
                     const li = document.createElement("li")
                     li.innerHTML = `<a href="/liquors/${recipe.liquor.id}/recipes/${recipe.id}">${recipe.name}</a>`
                     $("#indexShow").append(li)
+                    $("#searchDiv").empty()
                 })
             })
         } 
