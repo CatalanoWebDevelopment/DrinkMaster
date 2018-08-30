@@ -23,7 +23,6 @@
         const urlArray = window.location.href.split("/")
         const idParams = parseInt(urlArray[4])
         
-        
         if(urlArray[3] === "liquors") {
             $.getJSON("/liquors/" + `${idParams}` + "/recipes", function(recipes) {
                 recipes.forEach(function(recipe) {
