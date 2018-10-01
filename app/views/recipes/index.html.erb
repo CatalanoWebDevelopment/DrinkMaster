@@ -32,7 +32,7 @@
                     $("#searchDiv").empty()
                 })
             })
-            
+             
         } else if(urlArray[3] === "users") {
             $.getJSON("/users/" + `${idParams}` + "/recipes", function(recipes) {
                 recipes.forEach(function(recipe) {
